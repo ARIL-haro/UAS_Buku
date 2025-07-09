@@ -13,17 +13,12 @@ class Buku extends Model
         'kategori'
     ];
 
-    /**
-     * Relationship with Penjualan model
-     */
     public function penjualans(): HasMany
     {
         return $this->hasMany(Penjualan::class);
     }
 
-    /**
-     * Calculate total books sold
-     */
+
     public function getTerjualAttribute(): int
     {
         return $this->penjualans()->sum('eksemplar');
